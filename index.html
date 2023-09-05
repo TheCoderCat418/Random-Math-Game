@@ -1,13 +1,21 @@
 <!DOCTYPE html>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="home.css">
 <script src="script.js"></script>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Welcome!</title>
 </head>
 <body>
-<button onfocus="enlarge()" id="easybutton">EASY</button>
-<button onfocus="enlarge()" id="hard">HARD</button>
+<h1 style="font-size: 75px">Do you know math?</h1>
+<h2 style="font-size: 50px">Let's find out!</h2>
+<button id="start-btn" onclick="start()" onpointerenter="enlarge(true)" onpointerleave="enlarge(false)">START!</button>
 
 </body>
 </html>
