@@ -1,0 +1,16 @@
+* {
+    text-align: center;
+}
+body{
+    background-color: dodgerblue;
+}
+h3{
+    font-size: small;
+}
+#awn-box, #awn-label{
+    font-size: large;
+}
+#awn-box{
+
+    background-color: white;
+}
