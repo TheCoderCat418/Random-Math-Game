@@ -18,6 +18,6 @@ function setOp(id){
 function gotogame(){
     let url = new URL("game.html", window.location.href);
     url.searchParams.set("diff", diffMode);
-    url.searchParams.set("equations", operators);
+    url.searchParams.set("equations", JSON.stringify(operators))
     window.location.href = url.href;
 }

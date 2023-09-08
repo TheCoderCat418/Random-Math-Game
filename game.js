@@ -4,16 +4,32 @@ function ondone(){
         document.getElementById("awn-box").value = ""
         let numbers = generateRandomNumber(diff,currentLevel)
         currentLevel++
-        document.getElementById("problem").innerHTML = "What is " + numbers[0] + " + " +numbers[1]+"?"
-        solution = numbers[0]+numbers[1]
+
+        let sOperator = operator.at(Math.trunc(Math.random() * 2))
+        console.log(sOperator)
+        if(sOperator === "add"){
+            solution = numbers[0]+numbers[1]
+            document.getElementById("problem").innerHTML = "What is " + numbers[0] + " + " +numbers[1]+"?"
+        }else {
+            if (numbers[0] > numbers[1]) {
+                solution = numbers[0] - numbers[1]
+                document.getElementById("problem").innerHTML = "What is " + numbers[0] + " - " + numbers[1] + "?"
+            } else {
+                solution = numbers[1] - numbers[0]
+                document.getElementById("problem").innerHTML = "What is " + numbers[1] + " - " + numbers[0] + "?"
+            }
+        }
     }
 
+
+}
+function showBadge(badgeName){
 
 }
 function init(){
     let url = new URL(window.location.href);
     let param = url.searchParams;
-    operator = param.get("equations")
+    operator = JSON.parse(param.get("equations"))
      if(operator.indexOf("sub")){
          document.getElementById("equation-types").innerHTML = "Subtraction!"
      }else if(operator.indexOf("add")) {
