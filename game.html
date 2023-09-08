@@ -7,10 +7,20 @@
     <title>Game</title>
 </head>
 <body onload="init()">
+<div id="game">
     <h3 id="equation-types">Addition</h3>
     <h1 id="problem">Problem here</h1>
     <label id="awn-label" for="awn-box">Answer Here: </label>
     <input type="text" id="awn-box">
     <button onclick="ondone()">submit</button>
+</div>
+<div id="badges" hidden="hidden">
+    <div id="add5" hidden="hidden">
+        <h1>Congrats! You have completed 5 problems! Would you like to go back to select a different level, or stay here?</h1>
+        <img style="height: 20vw" src="https://epe.brightspotcdn.com/58/da/1298d864413a9978833bc44e1d3f/05112023lead-art-32srmath-how-addition-fact-fluency-develops-stephen-vs.jpg" alt="Add badge">
+    </div>
+    <button onclick="goback()">Go back</button>
+    <button onclick="keepgoing()">Keep Going!</button>
+</div>
 </body>
 </html>
