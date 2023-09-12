@@ -13,3 +13,4 @@ function start(){
     window.location.href = "levelselect.html";
 
 }
+
