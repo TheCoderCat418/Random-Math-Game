@@ -8,8 +8,8 @@ function goToLevel(diff){
     document.getElementById("opp").hidden = false
 }
 function setOp(id){
-    if(!operators.indexOf(id)){
-        operators.splice(id)
+    if(operators.find((x) => x === id)){
+        operators.splice(operators.findIndex((x) => x === id), 1)
     }else {
         operators.push(id)
     }

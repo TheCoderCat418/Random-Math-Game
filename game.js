@@ -1,7 +1,15 @@
-let diff, currentLevel, solution = 1, operator = [], currentBadges = []
+let diff, currentLevel, solution = 1, operator = [], currentBadges = [], badgeAward = false
 
 function ondone() {
-    if (solution === parseInt(document.getElementById("awn-box").value)) {
+    document.getElementById("awn-box").readOnly = false
+    document.getElementById("correction").hidden = true
+    let response = parseInt(document.getElementById("awn-box").value)
+    if(badgeAward){
+        response = ""
+        solution = ""
+        badgeAward = false
+    }
+    if (solution === response) {
         document.getElementById("awn-box").value = ""
         let numbers = generateRandomNumber(diff, currentLevel)
         currentLevel++
@@ -20,13 +28,28 @@ function ondone() {
                 document.getElementById("problem").innerHTML = "What is " + numbers[1] + " - " + numbers[0] + "?"
             }
         }
+    }else {
+    document.getElementById("correction").hidden = false
+        document.getElementById("correction").innerHTML = "Oh no! The answer was " + solution + ". Try a different one! Click submit to continue."
+        document.getElementById("awn-box").value = ""
+        document.getElementById("awn-box").readOnly = true
+        badgeAward = true
+        currentLevel--
     }
     if (currentLevel === 5) {
-        solution = 0
-        document.getElementById("problem").innerHTML = "Congratulations on completing 5 levels!"
+        badgeAward = true
+        document.getElementById("awn-box").readOnly = true
+        document.getElementById("problem").innerHTML = "Congratulations on completing 5 levels! You are the master of math! Keep going! Click submit to continue."
         toggleBadge(true, "5")
+    }else if(currentLevel === 10){
+        badgeAward = true
+        document.getElementById("awn-box").readOnly = true
+        document.getElementById("problem").innerHTML = "Congratulations on completing 10 levels! Here is a happy bird! Click submit to continue."
+        toggleBadge(true, "10bird")
     }else if(currentLevel === 15){
-        document.getElementById("problem").innerHTML = "Congratulations on completing 15 levels!"
+        badgeAward = true
+        document.getElementById("awn-box").readOnly = true
+        document.getElementById("problem").innerHTML = "Congratulations on completing 15 levels! Here is a cat to keep you going! Click submit to continue."
         toggleBadge(true, "15cat")
     }
 
