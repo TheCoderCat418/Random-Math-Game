@@ -13,7 +13,10 @@ function setOp(id){
     }else {
         operators.push(id)
     }
-    console.log(operators)
+    document.getElementById("opper").innerText = ""
+    operators.forEach((a) => {
+        document.getElementById("opper").innerText = document.getElementById("opper").innerText +" "  + a
+    })
 }
 function gotogame(){
     let url = new URL("game.html", window.location.href);
